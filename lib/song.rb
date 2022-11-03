@@ -8,6 +8,7 @@ class Song
     @id = id
   end
 
+  # class/ class methods are equated to a table
   def self.create_table
     sql =  <<-SQL
       CREATE TABLE IF NOT EXISTS songs (
@@ -20,6 +21,7 @@ class Song
     DB[:conn].execute(sql)
   end
 
+  # instances / instance methods are equated to table records/rows.
   def save
     sql = <<-SQL
      INSERT INTO songs (name, album)
